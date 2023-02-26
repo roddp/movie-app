@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Movie from './components/Movie'
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Details from './pages/Details';
 
 function App() {
 
@@ -8,9 +10,11 @@ function App() {
 
   const MOVIES_API = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&page=1&vote_count.gte=1000`
   const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${REACT_APP_API_KEY}&query=`
+
   const [movieData, setMovieData] = useState([]);
   const [movieSearch, setMovieSearch] = useState("");
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAPIData(MOVIES_API);
@@ -36,12 +40,20 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1>Movie App</h1>
+        <h1 onClick={() => navigate("/")}>Movie App</h1>
         <input type='text' placeholder='Search' className='searchInput' onChange={handleChange} value={movieSearch || ''}></input>
       </header>
-      <div className='movieList'>
-        {movieData.map(movie => <Movie movie={movie} key={movie.id} />)}
-      </div>
+
+      <Routes>
+        <Route path="/"
+          element={
+            <div className='movieList'>
+              {movieData.map(movie => <Movie movie={movie} key={movie.id} />)}
+            </div>} />
+        <Route path="/movies/details/:id" element={<Details></Details>} />
+      </Routes>
+
+
     </div>
   )
 }

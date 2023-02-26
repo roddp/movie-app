@@ -1,0 +1,55 @@
+.detailsContainer{
+  display: flex;
+  padding: 10px;
+}
+
+.movieImg{
+  height: 45%;
+  width: 30%;
+  border: 2px solid gold;
+  border-radius: 4px;
+}
+
+.movieTitle{
+  color: white;
+  margin-left: 20px;
+}
+
+.movieRating{
+  margin-left: 20px;
+}
+.movieRating span{
+  color: white;
+}
+
+.genreTag{
+  background-color: maroon;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.tags{
+  margin-top: 5px;
+}
+
+.movieOverview{
+  color: white;
+  border-top: 2px gold;
+}
+
+.genreTag{
+  cursor: pointer;
+}
+
+.genreTag:hover{
+  background-color: gold;
+}
+
+.movieOverview p{
+  border-bottom: 1px solid gold;
+}
+
+.prodContainer:last-of-type{
+  border-bottom: 1px solid gold;
+}

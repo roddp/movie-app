@@ -16,7 +16,11 @@ body{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 10px 0px 0px 10px;
+}
+
+.App-header h1{
+  cursor: pointer;
 }
 
 .App-header input{
@@ -34,13 +38,20 @@ body{
   margin: 10px;
   border-radius: 5px;
   background-color: black;
-  width: 304px;
+  width: 10%;
+  height: 280px;
+  overflow: hidden;
+  white-space: normal;
+}
+
+.movieContainer img{
+  width: 100%
 }
 
 
 .movieInfo {
   color: white;
-  padding: 1rem;
+  padding: 0.2rem;
   margin: 0px;
 }
 
@@ -51,16 +62,14 @@ body{
 }
 
 
-.movieContainer img{
-  width: 300px;
-  height: 80%;
-}
 
 .movieList{
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
+  
 }
 
 .movieOverlay {
@@ -85,5 +94,6 @@ body{
 .movieContainer:hover .movieOverlay {
   transform: translateY(0);
 }
+
 
 
