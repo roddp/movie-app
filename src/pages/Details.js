@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import StarRating from 'react-star-ratings'
 import './Details.css';
-
+import notFoundImg from '../assets/notfoundImg.jpg';
 
 const Details = () => {
   let { id } = useParams();
   const { REACT_APP_API_KEY } = process.env;
+
   const API_SEARCHID = `https://api.themoviedb.org/3/movie/${id}?api_key=${REACT_APP_API_KEY}&language=en-US`;
 
   const [movieDetails, setMovieDetails] = useState([]);
@@ -25,9 +26,9 @@ const Details = () => {
 
   const ratingRounded = Math.round((movieDetails.vote_average + Number.EPSILON) * 100) / 100;
 
-  return (
+  return (movieDetails ?
     <div className='detailsContainer'>
-      <img className='movieImg' src={IMAGES_URL + movieDetails.backdrop_path} alt="poster" />
+      <img className='movieImg' src={movieDetails.backdrop_path !== null ? IMAGES_URL + movieDetails.backdrop_path : notFoundImg} alt="poster" />
 
       <div className='movieContent'>
         <h3 className='movieTitle'>{movieDetails.title}</h3>
@@ -59,7 +60,7 @@ const Details = () => {
       </div>
     </div>
 
-  )
+    : <div>Loading</div>)
 }
 
 export default Details
