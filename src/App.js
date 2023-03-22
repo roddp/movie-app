@@ -40,12 +40,12 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 onClick={() => navigate("/")}>Movie App</h1>
+        <h1 onClick={() => navigate("/movie-app")}>Movie App</h1>
         <input type='text' placeholder='Search' className='searchInput' onChange={handleChange} value={movieSearch || ''}></input>
       </header>
 
       <Routes>
-        <Route path="/"
+        <Route path="/movie-app"
           element={
             <div className='movieList'>
               {movieData.map(movie => <Movie movie={movie} key={movie.id} />)}
