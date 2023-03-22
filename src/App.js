@@ -50,7 +50,7 @@ function App() {
             <div className='movieList'>
               {movieData.map(movie => <Movie movie={movie} key={movie.id} />)}
             </div>} />
-        <Route path="/movies/details/:id" element={<Details></Details>} />
+        <Route path="/movie-app/movies/details/:id" element={<Details></Details>} />
       </Routes>
 
 
